@@ -5,18 +5,18 @@ on:
        - 'hello-world-docker-action/**'
   workflow_dispatch:
 
-  jobs:
-    test-action:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v3.3.0
+jobs:
+  test-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.3.0
 
-        - name: Run my own container action
-          id: hello-action
-          uses: ./hello-world-docker-action #Checkout the repository to reference the action locally and without a git reference.
-          with:
-            who-to-greet: '@mgrinstein'
+      - name: Run my own container action
+        id: hello-action
+        uses: ./hello-world-docker-action #Checkout the repository to reference the action locally and without a git reference.
+        with:
+          who-to-greet: '@mgrinstein'
 
-        - name: Output time set in the container
-          run: echo "The time was ${{ steps.hello-action.outputs.time }} when the action said hello"
+      - name: Output time set in the container
+        run: echo "The time was ${{ steps.hello-action.outputs.time }} when the action said hello"
