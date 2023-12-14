@@ -43,8 +43,8 @@ jobs:
     environment: Load-Test
     steps:
       - run: |
-      echo "Testing"
-      sleep 15
+        echo "Testing"
+        sleep 15
 
   Production:
     runs-on: ubuntu-latest
